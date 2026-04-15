@@ -7,15 +7,15 @@ import { colors } from '../theme';
 const navItems = [
   { icon: 'dashboard', label: 'Library' },
   { icon: 'widgets', label: 'Components' },
+  { icon: 'route', label: 'Navigation' },
 ];
 
-export default function Header() {
+export default function Header({ activePage = 'Library', onNavigate = () => {} }) {
   const { isMobile } = useResponsive();
-  const [activeItem, setActiveItem] = useState('Library');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleNavPress = (label) => {
-    setActiveItem(label);
+    onNavigate(label);
     if (isMobile) {
       setIsMobileMenuOpen(false);
     }
@@ -40,7 +40,7 @@ export default function Header() {
           {!isMobile && (
             <View style={styles.navRow}>
               {navItems.map((item) => {
-                const isActive = activeItem === item.label;
+                const isActive = activePage === item.label;
 
                 return (
                   <TouchableOpacity
@@ -85,7 +85,7 @@ export default function Header() {
           </View>
           <View style={styles.mobileNavList}>
             {navItems.map((item) => {
-              const isActive = activeItem === item.label;
+              const isActive = activePage === item.label;
 
               return (
                 <TouchableOpacity

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 import Header from './components/Header';
 import FloatingActionButtons from './components/FloatingActionButtons';
@@ -6,21 +6,36 @@ import StatusIndicators from './components/StatusIndicators';
 import ControlStates from './components/ControlStates';
 import SegmentedControls from './components/SegmentedControls';
 import ProgressLoading from './components/ProgressLoading';
-import NavigationDrawer from './components/NavigationDrawer';
-import TopAppBars from './components/TopAppBars';
-import ContextualNavigation from './components/ContextualNavigation';
+import NavigationPage from './components/NavigationPage';
 import BottomNavigation from './components/BottomNavigation';
 import useResponsive from './useResponsive';
 import { colors } from './theme';
 
 export default function App() {
   const { isMobile } = useResponsive();
+  const [activePage, setActivePage] = useState('Library');
+
+  const renderPage = () => {
+    if (activePage === 'Navigation') {
+      return <NavigationPage />;
+    }
+
+    return (
+      <>
+        <FloatingActionButtons />
+        <StatusIndicators />
+        <ControlStates />
+        <SegmentedControls />
+        <ProgressLoading />
+      </>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="dark-content" backgroundColor={colors.surface} />
       <View style={styles.container}>
-        <Header />
+        <Header activePage={activePage} onNavigate={setActivePage} />
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={[
@@ -29,14 +44,7 @@ export default function App() {
           ]}
           showsVerticalScrollIndicator={false}
         >
-          <FloatingActionButtons />
-          <StatusIndicators />
-          <ControlStates />
-          <SegmentedControls />
-          <ProgressLoading />
-          <NavigationDrawer />
-          <TopAppBars />
-          <ContextualNavigation />
+          {renderPage()}
           <View style={styles.bottomSpacer} />
         </ScrollView>
         <BottomNavigation />
