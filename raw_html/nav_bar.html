@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Library: Navigation - Techno-Zen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#291800",
+                        "secondary-fixed": "#ecdcff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#b7eaff",
+                        "secondary-container": "#7f04ff",
+                        "on-secondary-fixed": "#270057",
+                        "tertiary-fixed-dim": "#ffba49",
+                        "inverse-primary": "#4cd6ff",
+                        "on-surface-variant": "#3c494e",
+                        "on-primary-fixed-variant": "#004e60",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#d5baff",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "tertiary-fixed": "#ffddb1",
+                        "tertiary": "#815600",
+                        "primary-fixed-dim": "#4cd6ff",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-container": "#feb127",
+                        "secondary": "#6100c6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#00d1ff",
+                        "outline-variant": "#bbc9cf",
+                        "primary": "#00677f",
+                        "on-secondary-fixed-variant": "#5e00c1",
+                        "on-primary-fixed": "#001f28",
+                        "surface": "#f8f9fa",
+                        "outline": "#6c797f",
+                        "on-primary-container": "#00566a",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#e7d5ff",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#00677f",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container-high": "#e7e8e9",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-container": "#6b4700"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #f8f9fa; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- TopAppBar Shell (Shared Component Implementation) -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl shadow-sm shadow-cyan-900/5 flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a serene architect with minimalist glasses and neutral expression against a soft gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFfvo2_PgXZ0wUFPjwb9-Pcvh2w7j4BI_dfcxrlVCt3f5br5advcjRfQGf0bT65O_SpULSdhF0DduXOG5M4qAUl6UWA6r9i5m9_rLn2UkDcL_dUpOh6azriy_6_XH4XSHrssAruWmJGKRnPDmbyJWPAdDTzPkHXQX-2vZY3xDI-ntpKjz9UKGr2zyL5NSaOBVtwJvEz8vfHagi69aCS9y6jI3droGCuADc6ktI7U95DvEu203R1exR9K3Bwsbjvvtwi1hKd6x58Q"/>
+</div>
+<span class="text-2xl font-bold tracking-tighter text-zinc-900 font-headline">Techno-Zen</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-cyan-600 active:scale-95 transition-transform" data-icon="search">search</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto space-y-20">
+<!-- Hero Section: Editorial Branding -->
+<section class="space-y-4">
+<p class="font-label text-tertiary uppercase tracking-widest text-xs">Component Framework</p>
+<h1 class="text-6xl font-headline font-bold tracking-tight text-on-surface">Library: Navigation</h1>
+<p class="max-w-2xl text-on-surface-variant text-lg leading-relaxed">A visualization of systemic movement patterns. Built on the principles of spatial depth and rhythmic asymmetry.</p>
+</section>
+<!-- Section 1: Navigation Drawer -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-4 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-headline font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+                    THE SHELL
+                </div>
+<h2 class="text-3xl font-headline font-bold">Navigation Drawer</h2>
+<p class="text-on-surface-variant">Used for broad ecosystem switching and high-level identity management. The drawer leverages deep tonal shifts rather than lines to define boundaries.</p>
+</div>
+<div class="lg:col-span-8 flex justify-center lg:justify-start">
+<!-- NavigationDrawer Implementation from JSON -->
+<nav class="h-auto w-80 rounded-r-[2rem] bg-zinc-50 flex flex-col p-8 space-y-6 shadow-sm">
+<div class="flex flex-col space-y-2 items-start mb-4">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest overflow-hidden mb-2">
+<img class="w-full h-full object-cover" data-alt="minimalist architectural visualization of a serene zen garden with clean concrete lines and a single bonsai tree" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD220b1diRy9z4TQVcjZBvI_T-Jb1cqi5TJnbD8zoRl-skDWMtPfnFEzjaBHNRwDSGwKMRA-Dqky0xKfrrVCXGidvqfikGtaN1STUh1xElWKwAP3VarsIVMqW8EcoNntQDLHbgwIvmH5qoePvu7cfF3e0YI2RPNPEFitvKuCHxOlL9khO4ScRrvWLYT8uRnbCeFmGxQ7qIZJPM7DR7kbQlvyu3aFYccT5TFNWd9o4dzkm9XmPU1JYNFZC8BaiXtSG7xfC21JiBdmg"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-xl text-zinc-900">Zen Architect</h3>
+<div class="flex items-center gap-2">
+<span class="text-xs font-headline font-medium text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-full">Pro Plan</span>
+<span class="text-[10px] text-zinc-400 uppercase tracking-widest">Online</span>
+</div>
+</div>
+</div>
+<div class="space-y-1">
+<!-- Label: Personal (Active) -->
+<a class="flex items-center gap-4 p-4 text-zinc-900 font-bold bg-white rounded-xl hover:translate-x-2 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined text-cyan-600" data-icon="person">person</span>
+<span class="font-headline">Personal</span>
+</a>
+<!-- Label: Work -->
+<a class="flex items-center gap-4 p-4 text-zinc-500 hover:translate-x-2 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="business_center">business_center</span>
+<span class="font-headline">Work</span>
+</a>
+<!-- Label: Creative -->
+<a class="flex items-center gap-4 p-4 text-zinc-500 hover:translate-x-2 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-headline">Creative</span>
+</a>
+</div>
+<div class="mt-auto pt-8 border-t border-zinc-100 flex flex-col gap-2">
+<button class="flex items-center gap-4 px-4 py-2 text-zinc-500 text-sm hover:text-zinc-900 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+                            Settings
+                        </button>
+<button class="flex items-center gap-4 px-4 py-2 text-zinc-500 text-sm hover:text-zinc-900 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+                            Support
+                        </button>
+</div>
+</nav>
+</div>
+</section>
+<!-- Section 2: Top App Bars Variations -->
+<section class="space-y-12">
+<div class="max-w-2xl space-y-4">
+<h2 class="text-3xl font-headline font-bold">Top App Bars</h2>
+<p class="text-on-surface-variant">The editorial anchor of every screen. We utilize transparency and glassmorphism to keep the focus on the content canvas below.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Variation A: Small Center Aligned -->
+<div class="bg-surface-container-low p-1 rounded-lg space-y-4">
+<div class="h-48 rounded-lg bg-surface flex flex-col relative overflow-hidden">
+<div class="flex justify-between items-center px-6 h-16 w-full bg-white/60 backdrop-blur-md">
+<span class="material-symbols-outlined text-zinc-400" data-icon="menu">menu</span>
+<span class="font-headline font-bold tracking-tight text-zinc-900">Dashboard</span>
+<span class="material-symbols-outlined text-zinc-400" data-icon="account_circle">account_circle</span>
+</div>
+<div class="p-6">
+<div class="h-2 w-1/2 bg-surface-container rounded-full mb-2"></div>
+<div class="h-2 w-3/4 bg-surface-container-low rounded-full"></div>
+</div>
+</div>
+<p class="px-4 text-sm font-headline text-zinc-500 uppercase tracking-widest">Small Center Aligned</p>
+</div>
+<!-- Variation B: Large Editorial Header -->
+<div class="bg-surface-container-low p-1 rounded-lg space-y-4">
+<div class="h-48 rounded-lg bg-surface flex flex-col relative overflow-hidden">
+<div class="p-8 pt-12">
+<h3 class="text-4xl font-headline font-bold tracking-tight text-zinc-900">Archive</h3>
+<p class="text-xs font-headline uppercase text-cyan-600 tracking-tighter">24 Items Saved</p>
+</div>
+<div class="absolute top-4 right-4 flex gap-2">
+<div class="w-8 h-8 rounded-full bg-white/80 shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+</div>
+</div>
+</div>
+<p class="px-4 text-sm font-headline text-zinc-500 uppercase tracking-widest">Large Sub-Page Header</p>
+</div>
+</div>
+</section>
+<!-- Section 3: Contextual Navigation -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 flex flex-col gap-6">
+<!-- Contextual Patterns -->
+<div class="bg-white p-8 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.02)] space-y-8">
+<!-- Pattern 1: Back Action -->
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<p class="text-xs font-headline uppercase tracking-widest text-zinc-400">Settings</p>
+<h4 class="font-headline font-bold">Privacy Controls</h4>
+</div>
+</div>
+<!-- Pattern 2: Multi-step Progress -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-xs font-headline font-bold text-cyan-600">STEP 02 OF 04</span>
+<span class="text-xs text-zinc-400">Review Identity</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-1/2 bg-gradient-to-r from-primary to-primary-container"></div>
+</div>
+</div>
+<!-- Pattern 3: Tabbed View -->
+<div class="flex gap-8 border-b border-zinc-100/50">
+<button class="pb-4 text-cyan-600 border-b-2 border-cyan-600 font-headline font-medium text-sm">Overview</button>
+<button class="pb-4 text-zinc-400 font-headline font-medium text-sm hover:text-zinc-600 transition-colors">Details</button>
+<button class="pb-4 text-zinc-400 font-headline font-medium text-sm hover:text-zinc-600 transition-colors">Activity</button>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-xs font-headline font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="tactic">tactic</span>
+                    CONTEXTUAL FLOW
+                </div>
+<h2 class="text-3xl font-headline font-bold">In-Page Movement</h2>
+<p class="text-on-surface-variant text-lg">Navigation doesn't just happen at the edges. Progressive indicators, back-actions, and tabbed switches allow users to drill into data without losing their conceptual orientation.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Implementation (Shared Component Implementation) -->
+<!-- Positioned for visualization on the Library Screen -->
+<footer class="fixed bottom-0 w-full z-50 rounded-t-[3rem] bg-slate-50/90 backdrop-blur-2xl shadow-[0_-10px_40px_rgba(0,103,127,0.04)] flex justify-around items-center px-4 pb-6 pt-2">
+<!-- Pulse -->
+<a class="flex flex-col items-center justify-center text-zinc-400 hover:text-cyan-500 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Pulse</span>
+</a>
+<!-- Tasks -->
+<a class="flex flex-col items-center justify-center text-zinc-400 hover:text-cyan-500 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Tasks</span>
+</a>
+<!-- Library (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-cyan-600 bg-white shadow-inner rounded-full w-16 h-16 active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Library</span>
+</a>
+<!-- Aether -->
+<a class="flex flex-col items-center justify-center text-zinc-400 hover:text-cyan-500 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="tempest">storm</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest mt-1">Aether</span>
+</a>
+</footer>
+</body></html>
