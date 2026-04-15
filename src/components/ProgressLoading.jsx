@@ -7,6 +7,7 @@ import { colors } from '../theme';
 export default function ProgressLoading() {
   const { isMobile } = useResponsive();
   const spinAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(0)).current;
   const bounce1 = useRef(new Animated.Value(0)).current;
   const bounce2 = useRef(new Animated.Value(0)).current;
   const bounce3 = useRef(new Animated.Value(0)).current;
@@ -18,6 +19,21 @@ export default function ProgressLoading() {
         duration: 1000,
         useNativeDriver: true,
       })
+    ).start();
+
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(slideAnim, {
+          toValue: 1,
+          duration: 1500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(slideAnim, {
+          toValue: 0,
+          duration: 1500,
+          useNativeDriver: true,
+        }),
+      ])
     ).start();
 
     const createBounce = (anim, delay) => {
@@ -48,6 +64,11 @@ export default function ProgressLoading() {
     outputRange: ['0deg', '360deg'],
   });
 
+  const slideX = slideAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-96, 250],
+  });
+
   return (
     <View style={[styles.section, isMobile && styles.sectionMobile]}>
       <View style={[styles.header, isMobile && styles.headerMobile]}>
@@ -68,7 +89,7 @@ export default function ProgressLoading() {
             />
           </View>
           <View style={styles.progressTrack}>
-            <View style={styles.progressIndeterminate} />
+            <Animated.View style={[styles.progressIndeterminate, { transform: [{ translateX: slideX }] }]} />
           </View>
         </View>
         
@@ -136,7 +157,6 @@ const styles = StyleSheet.create({
     padding: 40,
     borderRadius: 16,
     gap: 40,
-    flex: 1,
     minWidth: 300,
   },
   cardMobile: {
@@ -150,22 +170,21 @@ const styles = StyleSheet.create({
     gap: 48,
   },
   progressTrack: {
-    width: '100%',
-    height: 4,
+    alignSelf: 'stretch',
+    height: 8,
     backgroundColor: colors.surfaceContainerHighest,
-    borderRadius: 2,
+    borderRadius: 4,
     overflow: 'hidden',
   },
   progressFill: {
-    height: '100%',
+    height: 8,
     width: '65%',
+    borderRadius: 4,
   },
   progressIndeterminate: {
-    height: '100%',
+    height: 8,
     width: 96,
     backgroundColor: colors.secondary,
-    position: 'absolute',
-    left: '33%',
   },
   spinner: {
     width: 48,

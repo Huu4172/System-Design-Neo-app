@@ -63,6 +63,6 @@ const styles = StyleSheet.create({
     paddingTop: 24,
   },
   bottomSpacer: {
-    height: 24,
+    height: 100,
   },
 });

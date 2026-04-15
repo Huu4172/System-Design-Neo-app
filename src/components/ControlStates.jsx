@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceContainerLow,
     padding: 40,
     borderRadius: 16,
-    flex: 1,
     minWidth: 300,
   },
   cardMobile: {

@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 24,
     minWidth: 200,
-    flex: 1,
   },
   cardMobile: {
     padding: 20,
