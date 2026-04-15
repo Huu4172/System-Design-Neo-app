@@ -6,6 +6,9 @@ import StatusIndicators from './components/StatusIndicators';
 import ControlStates from './components/ControlStates';
 import SegmentedControls from './components/SegmentedControls';
 import ProgressLoading from './components/ProgressLoading';
+import NavigationDrawer from './components/NavigationDrawer';
+import TopAppBars from './components/TopAppBars';
+import ContextualNavigation from './components/ContextualNavigation';
 import BottomNavigation from './components/BottomNavigation';
 import useResponsive from './useResponsive';
 import { colors } from './theme';
@@ -31,6 +34,9 @@ export default function App() {
           <ControlStates />
           <SegmentedControls />
           <ProgressLoading />
+          <NavigationDrawer />
+          <TopAppBars />
+          <ContextualNavigation />
           <View style={styles.bottomSpacer} />
         </ScrollView>
         <BottomNavigation />
