@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, StyleSheet, StatusBar } from 'react-native';
+import { ScrollView, View, StatusBar } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Header from './components/Header';
 import ActionShellPage from './pages/ActionShellPage';
@@ -7,6 +7,7 @@ import NavigationPage from './pages/NavigationPage';
 import BottomNavigation from './components/BottomNavigation';
 import useResponsive from './useResponsive';
 import { colors } from './theme';
+import { styles } from './styles/App.styles';
 
 export default function App() {
   const { isMobile } = useResponsive();
@@ -43,31 +44,3 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: colors.surface,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: colors.surface,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  content: {
-    maxWidth: 1200,
-    width: '100%',
-    alignSelf: 'center',
-    paddingHorizontal: 24,
-    paddingTop: 48,
-  },
-  contentMobile: {
-    paddingHorizontal: 16,
-    paddingTop: 24,
-  },
-  bottomSpacer: {
-    height: 100,
-  },
-});
