@@ -3,7 +3,9 @@ import { colors } from '../theme';
 
 export const styles = StyleSheet.create({
   headerWrapper: {
+    position: 'relative',
     backgroundColor: colors.surface,
+    zIndex: 20,
   },
   header: {
     flexDirection: 'row',
@@ -93,9 +95,11 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.surfaceContainerHighest,
   },
   mobileDrawer: {
-    marginHorizontal: 16,
+    position: 'absolute',
+    top: '100%',
+    left: 16,
+    right: 16,
     marginTop: 8,
-    marginBottom: 12,
     backgroundColor: colors.surfaceContainerLowest,
     borderRadius: 24,
     padding: 20,
@@ -103,7 +107,8 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.04,
     shadowRadius: 8,
-    elevation: 2,
+    elevation: 8,
+    zIndex: 30,
   },
   profileSection: {
     marginBottom: 20,

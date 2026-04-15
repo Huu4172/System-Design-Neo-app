@@ -75,17 +75,6 @@ export default function Header({ activePage = 'Action Shell', onNavigate = () =>
       </View>
       {isMobile && isMobileMenuOpen && (
         <View style={styles.mobileDrawer}>
-          <View style={styles.profileSection}>
-            <Image
-              source={{ uri: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCUjhGZSSfpMZPGSXbIoulaCMOLInOU_nL_HQkGqZmvxv3sYcyz4VKtBjCVDZT1n3ZmqfIQFfU1pRhZgmHbhZA8VGKEINZFKIIdcd-LYgbJR7mhiRRnq1F4ev_Gw4ebz-I6cpxAHpY33F1xk8-YPbjDsrdcwm3YYi9b7r6rpxL8XOKsZ0GS1kzRQdV-HwEQP9LLgFaVuUclDyW97w9EnL7lNXFie9YrN6CiAXidZzNRkG-HgGG_KPrxQxdsO5tKCeygKyuqgCbjoB4z' }}
-              style={styles.drawerAvatar}
-            />
-            <Text style={styles.profileName}>Zen Architect</Text>
-            <View style={styles.profileMeta}>
-              <Text style={styles.proBadge}>Pro Plan</Text>
-              <Text style={styles.onlineText}>ONLINE</Text>
-            </View>
-          </View>
           <View style={styles.mobileNavList}>
             {navItems.map((item) => {
               const isActive = currentPage === item.label;
