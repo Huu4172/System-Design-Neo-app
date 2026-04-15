@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import { View, Text, StyleSheet, Animated, Easing } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import useResponsive from '../useResponsive';
 import { colors } from '../theme';
@@ -17,6 +17,7 @@ export default function ProgressLoading() {
       Animated.timing(spinAnim, {
         toValue: 1,
         duration: 1000,
+        easing: Easing.linear,
         useNativeDriver: true,
       })
     ).start();
@@ -193,6 +194,8 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: colors.primaryContainer,
     borderTopColor: colors.primary,
+    borderRightColor: 'transparent',
+    borderBottomColor: 'transparent',
   },
   bounceDots: {
     flexDirection: 'row',
