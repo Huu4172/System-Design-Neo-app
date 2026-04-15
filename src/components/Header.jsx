@@ -6,6 +6,7 @@ import { colors } from '../theme';
 import { styles } from '../styles/Header.styles';
 
 const navItems = [
+  { icon: 'chat-bubble', label: 'Chat' },
   { icon: 'dashboard', label: 'Action Shell' },
   { icon: 'route', label: 'Navigation' },
 ];

@@ -3,6 +3,7 @@ import { ScrollView, View, StatusBar } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Header from './components/Header';
 import ActionShellPage from './pages/ActionShellPage';
+import ChatPage from './pages/ChatPage';
 import NavigationPage from './pages/NavigationPage';
 import BottomNavigation from './components/BottomNavigation';
 import useResponsive from './useResponsive';
@@ -14,6 +15,10 @@ export default function App() {
   const [activePage, setActivePage] = useState('Action Shell');
 
   const renderPage = () => {
+    if (activePage === 'Chat') {
+      return <ChatPage />;
+    }
+
     if (activePage === 'Navigation') {
       return <NavigationPage />;
     }

@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -90,7 +89,7 @@
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
 <body class="bg-surface text-on-surface">
 <header class="sticky top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl flex items-center justify-between px-6 h-20 shadow-sm shadow-cyan-500/5">
 <div class="flex items-center gap-4">
@@ -107,7 +106,7 @@
 </div>
 </div>
 </header>
-<main class="max-w-6xl mx-auto px-6 py-12 pb-32">
+<main class="max-w-6xl mx-auto px-6 py-12 pb-48">
 <div class="mb-16">
 <span class="text-primary font-headline text-sm tracking-[0.2em] uppercase mb-2 block">Section 01</span>
 <h2 class="text-5xl font-headline font-bold text-on-surface tracking-tight mb-4">Floating Action Buttons</h2>
@@ -229,6 +228,68 @@
 <div class="w-3 h-3 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></div>
 <div class="w-3 h-3 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></div>
 </div>
+</div>
+</div>
+<div class="mb-16">
+<span class="text-primary font-headline text-sm tracking-[0.2em] uppercase mb-2 block">Section 06</span>
+<h2 class="text-5xl font-headline font-bold text-on-surface tracking-tight mb-4">Overlays &amp; Modals</h2>
+<p class="text-outline max-w-2xl">Floating interfaces that interrupt the flow for critical decisions or focused configurations.</p>
+</div>
+<div class="space-y-12 mb-24">
+<!-- Standard Modal -->
+<div class="bg-surface-container-low p-8 md:p-12 rounded-lg flex flex-col items-center gap-10">
+<span class="text-xs font-label uppercase tracking-widest text-outline">Standard Modal</span>
+<div class="w-full max-w-md bg-surface-container-lowest rounded-lg shadow-2xl overflow-hidden border border-surface-variant">
+<div class="p-6 flex flex-col gap-8">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-headline font-bold text-on-surface">Update AI Avatar</h3>
+<span class="material-symbols-outlined text-outline cursor-pointer">close</span>
+</div>
+<div class="flex justify-center gap-6 py-4">
+<div class="w-20 h-20 rounded-full bg-primary-container/20 flex items-center justify-center border-2 border-primary">
+<img alt="avatar" class="w-16 h-16 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUjhGZSSfpMZPGSXbIoulaCMOLInOU_nL_HQkGqZmvxv3sYcyz4VKtBjCVDZT1n3ZmqfIQFfU1pRhZgmHbhZA8VGKEINZFKIIdcd-LYgbJR7mhiRRnq1F4ev_Gw4ebz-I6cpxAHpY33F1xk8-YPbjDsrdcwm3YYi9b7r6rpxL8XOKsZ0GS1kzRQdV-HwEQP9LLgFaVuUclDyW97w9EnL7lNXFie9YrN6CiAXidZzNRkG-HgGG_KPrxQxdsO5tKCeygKyuqgCbjoB4z"/>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-high cursor-pointer"></div>
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 cursor-pointer"></div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container/30 cursor-pointer"></div>
+</div>
+</div>
+<div class="flex justify-end gap-3">
+<button class="px-6 py-2 rounded-full font-headline text-sm font-bold text-outline hover:bg-surface-container transition-colors">Cancel</button>
+<button class="px-8 py-2 rounded-full bg-primary text-on-primary font-headline text-sm font-bold shadow-md shadow-primary/10">Save</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Confirmation Dialog -->
+<div class="bg-surface-container-low p-8 md:p-12 rounded-lg flex flex-col items-center gap-10">
+<span class="text-xs font-label uppercase tracking-widest text-outline">Confirmation Dialog</span>
+<div class="w-full max-w-sm bg-surface-container-lowest rounded-lg shadow-2xl border border-error/10">
+<div class="p-8">
+<div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center mb-6">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-2">Delete Task?</h3>
+<p class="text-sm text-outline mb-8 leading-relaxed">This action cannot be undone. All associated creative assets will be permanently removed from the shell.</p>
+<div class="flex gap-4">
+<button class="flex-1 py-3 rounded-full bg-surface-container text-on-surface font-headline text-sm font-bold transition-colors">Keep</button>
+<button class="flex-1 py-3 rounded-full bg-error text-on-error font-headline text-sm font-bold shadow-lg shadow-error/20">Delete</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast -->
+<div class="bg-surface-container-low p-8 md:p-12 rounded-lg flex flex-col items-center gap-10 relative overflow-hidden">
+<span class="text-xs font-label uppercase tracking-widest text-outline">Notification Toast</span>
+<div class="w-full max-w-xs bg-inverse-surface text-inverse-on-surface px-6 py-4 rounded-full flex items-center justify-between shadow-xl animate-bounce">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">check_circle</span>
+<span class="text-sm font-label font-medium tracking-wide uppercase">Task synchronized</span>
+</div>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer">close</span>
+</div>
+<div class="mt-4 text-[10px] text-primary font-bold tracking-[0.3em] uppercase opacity-50 animate-pulse">Success Active</div>
 </div>
 </div>
 </main>
