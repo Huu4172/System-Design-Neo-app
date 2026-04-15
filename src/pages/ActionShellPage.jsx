@@ -6,6 +6,7 @@ import StatusIndicators from '../components/StatusIndicators';
 import ControlStates from '../components/ControlStates';
 import SegmentedControls from '../components/SegmentedControls';
 import ProgressLoading from '../components/ProgressLoading';
+import OverlaysModals from '../components/OverlaysModals';
 import useResponsive from '../useResponsive';
 import { colors } from '../theme';
 
@@ -24,7 +25,7 @@ export default function ActionShellPage() {
         <View style={[styles.header, isMobile && styles.headerMobile]}>
           <Text style={[styles.sectionTitle, isMobile && styles.sectionTitleMobile]}>Action Shell</Text>
           <Text style={styles.sectionDesc}>
-            The core interface canvas for expressive controls, status surfaces, segmented flows, and primary actions.
+            The core interface canvas for expressive controls, status surfaces, segmented flows, primary actions, and focused overlays.
           </Text>
         </View>
       </View>
@@ -33,6 +34,7 @@ export default function ActionShellPage() {
       <ControlStates />
       <SegmentedControls />
       <ProgressLoading />
+      <OverlaysModals />
     </>
   );
 }
