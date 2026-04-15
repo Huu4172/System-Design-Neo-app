@@ -13,8 +13,10 @@ const navItems = [
 export default function Header({ activePage = 'Action Shell', onNavigate = () => {} }) {
   const { isMobile } = useResponsive();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(activePage);
 
   const handleNavPress = (label) => {
+    setCurrentPage(label);
     onNavigate(label);
     if (isMobile) {
       setIsMobileMenuOpen(false);
@@ -36,11 +38,12 @@ export default function Header({ activePage = 'Action Shell', onNavigate = () =>
               color={colors.cyan600}
             />
           </TouchableOpacity>
-          <Text style={[styles.title, isMobile && styles.titleMobile]}>Action Shell</Text>
+
+          <Text style={[styles.title, isMobile && styles.titleMobile]}>{currentPage}</Text>
           {!isMobile && (
             <View style={styles.navRow}>
               {navItems.map((item) => {
-                const isActive = activePage === item.label;
+                const isActive = currentPage === item.label;
 
                 return (
                   <TouchableOpacity
@@ -85,7 +88,7 @@ export default function Header({ activePage = 'Action Shell', onNavigate = () =>
           </View>
           <View style={styles.mobileNavList}>
             {navItems.map((item) => {
-              const isActive = activePage === item.label;
+              const isActive = currentPage === item.label;
 
               return (
                 <TouchableOpacity
