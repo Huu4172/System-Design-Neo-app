@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Action Shell",
+    "slug": "action-shell",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#00677f",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.actionshell.app"
+    },
+    "android": {
+      "package": "com.actionshell.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#00677f"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}

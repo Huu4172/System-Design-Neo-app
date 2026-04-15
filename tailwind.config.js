@@ -1,0 +1,73 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "secondary-fixed-dim": "#d5baff",
+        "inverse-surface": "#2e3132",
+        "surface-container-high": "#e7e8e9",
+        "surface": "#f8f9fa",
+        "tertiary-fixed": "#ffddb1",
+        "surface-dim": "#d9dadb",
+        "outline": "#6c797f",
+        "on-tertiary": "#ffffff",
+        "tertiary": "#815600",
+        "surface-variant": "#e1e3e4",
+        "on-error-container": "#93000a",
+        "inverse-on-surface": "#f0f1f2",
+        "surface-bright": "#f8f9fa",
+        "inverse-primary": "#4cd6ff",
+        "on-secondary": "#ffffff",
+        "surface-container": "#edeeef",
+        "surface-container-lowest": "#ffffff",
+        "outline-variant": "#bbc9cf",
+        "error": "#ba1a1a",
+        "primary": "#00677f",
+        "surface-tint": "#00677f",
+        "secondary": "#6100c6",
+        "background": "#f8f9fa",
+        "secondary-container": "#7f04ff",
+        "primary-container": "#00d1ff",
+        "tertiary-container": "#feb127",
+        "primary-fixed-dim": "#4cd6ff",
+        "on-secondary-container": "#e7d5ff",
+        "on-surface-variant": "#3c494e",
+        "surface-container-low": "#f3f4f5",
+        "on-secondary-fixed": "#270057",
+        "on-primary": "#ffffff",
+        "on-primary-container": "#00566a",
+        "error-container": "#ffdad6",
+        "surface-container-highest": "#e1e3e4",
+        "primary-fixed": "#b7eaff",
+        "secondary-fixed": "#ecdcff",
+        "on-tertiary-container": "#6b4700",
+        "tertiary-fixed-dim": "#ffba49",
+        "on-surface": "#191c1d",
+        "on-primary-fixed": "#001f28",
+        "on-tertiary-fixed-variant": "#624000",
+        "on-error": "#ffffff",
+        "on-tertiary-fixed": "#291800",
+        "on-primary-fixed-variant": "#004e60",
+        "on-background": "#191c1d",
+        "on-secondary-fixed-variant": "#5e00c1"
+      },
+      borderRadius: {
+        "DEFAULT": "1rem",
+        "lg": "2rem",
+        "xl": "3rem",
+        "full": "9999px"
+      },
+      fontFamily: {
+        "headline": ["Space Grotesk", "sans-serif"],
+        "body": ["Manrope", "sans-serif"],
+        "label": ["Space Grotesk", "sans-serif"]
+      }
+    },
+  },
+  plugins: [],
+}
