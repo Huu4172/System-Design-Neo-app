@@ -1,34 +1,22 @@
 import React, { useState } from 'react';
 import { ScrollView, View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 import Header from './components/Header';
-import FloatingActionButtons from './components/FloatingActionButtons';
-import StatusIndicators from './components/StatusIndicators';
-import ControlStates from './components/ControlStates';
-import SegmentedControls from './components/SegmentedControls';
-import ProgressLoading from './components/ProgressLoading';
-import NavigationPage from './components/NavigationPage';
+import ActionShellPage from './pages/ActionShellPage';
+import NavigationPage from './pages/NavigationPage';
 import BottomNavigation from './components/BottomNavigation';
 import useResponsive from './useResponsive';
 import { colors } from './theme';
 
 export default function App() {
   const { isMobile } = useResponsive();
-  const [activePage, setActivePage] = useState('Library');
+  const [activePage, setActivePage] = useState('Action Shell');
 
   const renderPage = () => {
     if (activePage === 'Navigation') {
       return <NavigationPage />;
     }
 
-    return (
-      <>
-        <FloatingActionButtons />
-        <StatusIndicators />
-        <ControlStates />
-        <SegmentedControls />
-        <ProgressLoading />
-      </>
-    );
+    return <ActionShellPage />;
   };
 
   return (

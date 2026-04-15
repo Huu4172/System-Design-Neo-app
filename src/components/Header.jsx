@@ -5,12 +5,11 @@ import useResponsive from '../useResponsive';
 import { colors } from '../theme';
 
 const navItems = [
-  { icon: 'dashboard', label: 'Library' },
-  { icon: 'widgets', label: 'Components' },
+  { icon: 'dashboard', label: 'Action Shell' },
   { icon: 'route', label: 'Navigation' },
 ];
 
-export default function Header({ activePage = 'Library', onNavigate = () => {} }) {
+export default function Header({ activePage = 'Action Shell', onNavigate = () => {} }) {
   const { isMobile } = useResponsive();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
