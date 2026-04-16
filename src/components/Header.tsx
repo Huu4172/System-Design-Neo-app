@@ -7,6 +7,7 @@ import { styles } from '../styles/Header.styles';
 
 const navItems = [
   { icon: 'chat-bubble', label: 'Chat' },
+  { icon: 'inventory-2', label: 'Design Token' },
   { icon: 'dashboard', label: 'Action Shell' },
   { icon: 'route', label: 'Navigation' },
 ];

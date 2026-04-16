@@ -4,6 +4,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Header from './components/Header';
 import ActionShellPage from './pages/ActionShellPage';
 import ChatPage from './pages/ChatPage';
+import DesignTokenPage from './pages/DesignTokenPage';
 import NavigationPage from './pages/NavigationPage';
 import BottomNavigation from './components/Navigation/BottomNavigation';
 import useResponsive from './useResponsive';
@@ -17,6 +18,10 @@ export default function App() {
   const renderPage = () => {
     if (activePage === 'Chat') {
       return <ChatPage />;
+    }
+
+    if (activePage === 'Design Token') {
+      return <DesignTokenPage />;
     }
 
     if (activePage === 'Navigation') {
