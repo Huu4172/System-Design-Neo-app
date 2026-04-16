@@ -1,110 +1,122 @@
 import { StyleSheet } from 'react-native';
-import { colors } from './theme';
+import { colors, spacing, typography, borderRadius } from './theme';
 
+// Status indicator variants configuration
+export const statusVariants = {
+  live: {
+    backgroundColor: '#b7eaff',
+    dotColor: colors.primary,
+    textColor: '#004e60',
+  },
+  pending: {
+    backgroundColor: colors.surfaceContainerHighest,
+    dotColor: colors.outline,
+    textColor: colors.onSurface,
+  },
+  creative: {
+    backgroundColor: '#ecdcff',
+    dotColor: colors.secondary,
+    textColor: '#5e00c1',
+  },
+  processing: {
+    backgroundColor: '#ffddb1',
+    dotColor: colors.tertiary,
+    textColor: colors.onTertiaryContainer,
+  },
+};
+
+// Base styles
 export const styles = StyleSheet.create({
   section: {
-    marginBottom: 40,
+    marginBottom: spacing.xxxl,
   },
   sectionMobile: {
-    marginBottom: 24,
+    marginBottom: spacing.xl,
   },
   header: {
-    marginBottom: 32,
+    marginBottom: spacing.xxl,
   },
   headerMobile: {
-    marginBottom: 20,
+    marginBottom: spacing.lg,
   },
   sectionLabel: {
-    color: colors.primary,
-    fontSize: 12,
-    letterSpacing: 3,
+    fontSize: typography.overline.fontSize,
     fontWeight: 'bold',
-    marginBottom: 8,
+    letterSpacing: typography.overline.letterSpacing,
+    textTransform: 'uppercase',
+    lineHeight: typography.overline.lineHeight,
+    color: colors.primary,
+    marginBottom: spacing.sm,
   },
   sectionTitle: {
-    fontSize: 40,
+    fontSize: typography.h1.fontSize,
     fontWeight: 'bold',
+    letterSpacing: typography.h1.letterSpacing,
+    lineHeight: typography.h1.lineHeight,
     color: colors.onSurface,
-    marginBottom: 16,
-    letterSpacing: -1,
+    marginBottom: spacing.lg,
   },
   sectionTitleMobile: {
-    fontSize: 28,
-    marginBottom: 10,
+    fontSize: typography.h3.fontSize,
+    fontWeight: '600',
+    letterSpacing: typography.h3.letterSpacing,
+    lineHeight: typography.h3.lineHeight,
+    marginBottom: spacing.md,
   },
   sectionDesc: {
+    fontSize: typography.body.fontSize,
+    lineHeight: typography.body.lineHeight,
+    letterSpacing: typography.body.letterSpacing,
     color: colors.outline,
-    fontSize: 16,
-    lineHeight: 24,
     maxWidth: 600,
   },
   container: {
     backgroundColor: colors.surfaceContainerLow,
-    padding: 48,
-    borderRadius: 16,
+    padding: spacing.xxxl,
+    borderRadius: borderRadius.lg,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 16,
-    marginBottom: 40,
+    gap: spacing.lg,
+    marginBottom: spacing.xxxl,
   },
   containerMobile: {
-    padding: 20,
-    gap: 10,
-    marginBottom: 24,
+    padding: spacing.lg,
+    gap: spacing.md,
+    marginBottom: spacing.xl,
   },
+  // Base badge style
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-    borderRadius: 20,
-    gap: 8,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.xs + 2,
+    borderRadius: borderRadius.full,
+    gap: spacing.sm,
   },
-  badgeLive: {
-    backgroundColor: '#b7eaff',
-  },
-  badgePending: {
-    backgroundColor: colors.surfaceContainerHighest,
-  },
-  badgeCreative: {
-    backgroundColor: '#ecdcff',
-  },
-  badgeProcessing: {
-    backgroundColor: '#ffddb1',
-  },
+  // Base dot style
   dot: {
     width: 8,
     height: 8,
-    borderRadius: 4,
+    borderRadius: borderRadius.full,
   },
-  dotLive: {
-    backgroundColor: colors.primary,
-  },
-  dotPending: {
-    backgroundColor: colors.outline,
-  },
-  dotCreative: {
-    backgroundColor: colors.secondary,
-  },
-  badgeTextLive: {
-    fontSize: 12,
+  // Base badge text style
+  badgeText: {
+    fontSize: typography.labelSmall.fontSize,
     fontWeight: 'bold',
-    color: '#004e60',
-  },
-  badgeTextPending: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: colors.onSurface,
-  },
-  badgeTextCreative: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#5e00c1',
-  },
-  badgeTextProcessing: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: colors.onTertiaryContainer,
+    letterSpacing: typography.labelSmall.letterSpacing,
+    lineHeight: typography.labelSmall.lineHeight,
   },
 });
+
+// Helper function to get variant styles
+export const getVariantStyles = (variant) => {
+  const variantConfig = statusVariants[variant];
+  if (!variantConfig) return {};
+  
+  return {
+    badge: { backgroundColor: variantConfig.backgroundColor },
+    dot: { backgroundColor: variantConfig.dotColor },
+    text: { color: variantConfig.textColor },
+  };
+};
 
