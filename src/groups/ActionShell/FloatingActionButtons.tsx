@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import useResponsive from '../useResponsive';
-import { styles } from '../styles/FloatingActionButtons.styles';
-import FABCard from '../components/ActionShell/FABCard';
-import FABButton from '../components/ActionShell/FABButton';
+import useResponsive from '../../useResponsive';
+import { styles } from '../../styles/FloatingActionButtons.styles';
+import FABCard from '../../components/ActionShell/FABCard';
+import FABButton from '../../components/ActionShell/FABButton';
 
 export default function FloatingActionButtons() {
   const { isMobile } = useResponsive();
