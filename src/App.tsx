@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ScrollView, View, StatusBar } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import ActionShellPage from './pages/ActionShellPage';
 import ChatPage from './pages/ChatPage';
@@ -32,25 +33,27 @@ export default function App() {
   };
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.safeArea} edges={["top", "left", "right"]}>
-        <StatusBar barStyle="dark-content" backgroundColor={colors.surface} />
-        <View style={styles.container}>
-          <Header activePage={activePage} onNavigate={setActivePage} />
-          <ScrollView
-            style={styles.scrollView}
-            contentContainerStyle={[
-              styles.content,
-              isMobile && styles.contentMobile,
-            ]}
-            showsVerticalScrollIndicator={false}
-          >
-            {renderPage()}
-            <View style={styles.bottomSpacer} />
-          </ScrollView>
-          <BottomNavigation />
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <ThemeProvider>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.safeArea} edges={["top", "left", "right"]}>
+          <StatusBar barStyle="dark-content" backgroundColor={colors.surface} />
+          <View style={styles.container}>
+            <Header activePage={activePage} onNavigate={setActivePage} />
+            <ScrollView
+              style={styles.scrollView}
+              contentContainerStyle={[
+                styles.content,
+                isMobile && styles.contentMobile,
+              ]}
+              showsVerticalScrollIndicator={false}
+            >
+              {renderPage()}
+              <View style={styles.bottomSpacer} />
+            </ScrollView>
+            <BottomNavigation />
+          </View>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </ThemeProvider>
   );
 }

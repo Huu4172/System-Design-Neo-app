@@ -56,3 +56,162 @@ export const fonts = {
   body: 'Manrope',
   label: 'SpaceGrotesk',
 };
+
+// Spacing scale
+export const spacing = {
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  xxl: 32,
+  xxxl: 48,
+  xxxxl: 64,
+};
+
+// Typography styles
+export const typography = {
+  // Headlines
+  h1: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    letterSpacing: -1,
+    lineHeight: 48,
+  },
+  h2: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    letterSpacing: -0.5,
+    lineHeight: 40,
+  },
+  h3: {
+    fontSize: 28,
+    fontWeight: '600',
+    letterSpacing: 0,
+    lineHeight: 36,
+  },
+  h4: {
+    fontSize: 24,
+    fontWeight: '600',
+    letterSpacing: 0,
+    lineHeight: 32,
+  },
+  h5: {
+    fontSize: 20,
+    fontWeight: '600',
+    letterSpacing: 0,
+    lineHeight: 28,
+  },
+  
+  // Body text
+  bodyLarge: {
+    fontSize: 18,
+    lineHeight: 28,
+    letterSpacing: 0.15,
+  },
+  body: {
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: 0.15,
+  },
+  bodySmall: {
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.25,
+  },
+  
+  // Labels and captions
+  label: {
+    fontSize: 14,
+    fontWeight: '500',
+    letterSpacing: 0.1,
+    lineHeight: 20,
+  },
+  labelSmall: {
+    fontSize: 12,
+    fontWeight: '500',
+    letterSpacing: 0.5,
+    lineHeight: 16,
+  },
+  caption: {
+    fontSize: 12,
+    letterSpacing: 0.4,
+    lineHeight: 16,
+  },
+  overline: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+    lineHeight: 16,
+  },
+};
+
+// Border radius
+export const borderRadius = {
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  xxl: 28,
+  full: 9999,
+};
+
+// Shadows
+export const shadows = {
+  none: {
+    shadowColor: 'transparent',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    elevation: 0,
+  },
+  xs: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  sm: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  md: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  lg: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    elevation: 8,
+  },
+  xl: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.25,
+    shadowRadius: 24,
+    elevation: 12,
+  },
+};
+
+// Layout constants
+export const layout = {
+  maxWidth: 1200,
+  containerPadding: 24,
+  containerPaddingMobile: 16,
+  sectionGap: 48,
+  sectionGapMobile: 32,
+  cardGap: 12,
+  bottomNavHeight: 80,
+  headerHeight: 64,
+};
