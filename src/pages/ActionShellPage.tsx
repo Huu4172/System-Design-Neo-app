@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import FloatingActionButtons from '../components/ActionShell/FloatingActionButtons';
+import FloatingActionButtons from '../groups/FloatingActionButtons';
 import StatusIndicators from '../components/ActionShell/StatusIndicators';
 import ControlStates from '../components/ActionShell/ControlStates';
 import SegmentedControls from '../components/ActionShell/SegmentedControls';
