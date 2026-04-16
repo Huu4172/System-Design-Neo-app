@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import useResponsive from '../useResponsive';
-import { colors } from '../theme';
-import { styles } from '../styles/TopAppBars.styles';
+import useResponsive from '../../useResponsive';
+import { colors } from '../../theme';
+import { styles } from '../../styles/TopAppBars.styles';
 
 export default function TopAppBars() {
   const { isMobile } = useResponsive();

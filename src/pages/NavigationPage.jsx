@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import NavigationDrawer from '../components/NavigationDrawer';
-import TopAppBars from '../components/TopAppBars';
-import ContextualNavigation from '../components/ContextualNavigation';
+import NavigationDrawer from '../components/Navigation/NavigationDrawer';
+import TopAppBars from '../components/Navigation/TopAppBars';
+import ContextualNavigation from '../components/Navigation/ContextualNavigation';
 import useResponsive from '../useResponsive';
 import { colors } from '../theme';
 

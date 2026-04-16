@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { colors } from '../theme';
-import { styles } from '../styles/BottomNavigation.styles';
+import { colors } from '../../theme';
+import { styles } from '../../styles/BottomNavigation.styles';
 
 export default function BottomNavigation() {
   const [activeTab, setActiveTab] = useState('magic');

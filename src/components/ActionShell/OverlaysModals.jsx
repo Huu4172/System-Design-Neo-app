@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import useResponsive from '../useResponsive';
-import { styles } from '../styles/OverlaysModals.styles';
+import useResponsive from '../../useResponsive';
+import { styles } from '../../styles/OverlaysModals.styles';
 
 const avatarUri = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCUjhGZSSfpMZPGSXbIoulaCMOLInOU_nL_HQkGqZmvxv3sYcyz4VKtBjCVDZT1n3ZmqfIQFfU1pRhZgmHbhZA8VGKEINZFKIIdcd-LYgbJR7mhiRRnq1F4ev_Gw4ebz-I6cpxAHpY33F1xk8-YPbjDsrdcwm3YYi9b7r6rpxL8XOKsZ0GS1kzRQdV-HwEQP9LLgFaVuUclDyW97w9EnL7lNXFie9YrN6CiAXidZzNRkG-HgGG_KPrxQxdsO5tKCeygKyuqgCbjoB4z';
 

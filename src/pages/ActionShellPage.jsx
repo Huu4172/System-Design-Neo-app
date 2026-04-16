@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import FloatingActionButtons from '../components/FloatingActionButtons';
-import StatusIndicators from '../components/StatusIndicators';
-import ControlStates from '../components/ControlStates';
+import FloatingActionButtons from '../components/ActionShell/FloatingActionButtons';
+import StatusIndicators from '../components/ActionShell/StatusIndicators';
+import ControlStates from '../components/ActionShell/ControlStates';
 import SegmentedControls from '../components/SegmentedControls';
 import ProgressLoading from '../components/ProgressLoading';
-import OverlaysModals from '../components/OverlaysModals';
+import OverlaysModals from '../components/ActionShell/OverlaysModals';
 import useResponsive from '../useResponsive';
 import { colors } from '../theme';
 

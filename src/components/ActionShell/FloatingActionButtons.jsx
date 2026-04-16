@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import useResponsive from '../useResponsive';
-import { colors } from '../theme';
-import { styles } from '../styles/FloatingActionButtons.styles';
+import useResponsive from '../../useResponsive';
+import { colors } from '../../theme';
+import { styles } from '../../styles/FloatingActionButtons.styles';
 
 export default function FloatingActionButtons() {
   const { isMobile } = useResponsive();

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import useResponsive from '../useResponsive';
-import { colors } from '../theme';
-import { styles } from '../styles/ControlStates.styles';
+import useResponsive from '../../useResponsive';
+import { colors } from '../../theme';
+import { styles } from '../../styles/ControlStates.styles';
 
 export default function ControlStates() {
   const { isMobile } = useResponsive();

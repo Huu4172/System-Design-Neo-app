@@ -5,7 +5,7 @@ import Header from './components/Header';
 import ActionShellPage from './pages/ActionShellPage';
 import ChatPage from './pages/ChatPage';
 import NavigationPage from './pages/NavigationPage';
-import BottomNavigation from './components/BottomNavigation';
+import BottomNavigation from './components/Navigation/BottomNavigation';
 import useResponsive from './useResponsive';
 import { colors } from './theme';
 import { styles } from './styles/App.styles';
