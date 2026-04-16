@@ -6,18 +6,23 @@ import { colors } from '../styles/theme';
 import { styles } from '../styles/Header.styles';
 
 const navItems = [
-  { icon: 'chat-bubble', label: 'Chat' },
-  { icon: 'inventory-2', label: 'Design Token' },
-  { icon: 'dashboard', label: 'Action Shell' },
-  { icon: 'route', label: 'Navigation' },
+  { icon: 'chat-bubble' as const, label: 'Chat' },
+  { icon: 'inventory-2' as const, label: 'Design Token' },
+  { icon: 'dashboard' as const, label: 'Action Shell' },
+  { icon: 'route' as const, label: 'Navigation' },
 ];
 
-export default function Header({ activePage = 'Action Shell', onNavigate = () => {} }) {
+interface HeaderProps {
+  activePage?: string;
+  onNavigate?: (page: string) => void;
+}
+
+export default function Header({ activePage = 'Action Shell', onNavigate = () => {} }: HeaderProps) {
   const { isMobile } = useResponsive();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(activePage);
 
-  const handleNavPress = (label) => {
+  const handleNavPress = (label: string) => {
     setCurrentPage(label);
     onNavigate(label);
     if (isMobile) {

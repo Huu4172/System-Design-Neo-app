@@ -6,9 +6,9 @@ import { colors } from '../../styles/theme';
 import { styles } from '../../styles/NavigationDrawer.styles';
 
 const navItems = [
-  { icon: 'person', label: 'Personal', active: true },
-  { icon: 'business-center', label: 'Work', active: false },
-  { icon: 'palette', label: 'Creative', active: false },
+  { icon: 'person' as const, label: 'Personal', active: true },
+  { icon: 'business-center' as const, label: 'Work', active: false },
+  { icon: 'palette' as const, label: 'Creative', active: false },
 ];
 
 export default function NavigationDrawer() {

@@ -31,9 +31,9 @@ const chatMessages = [
 ];
 
 const statusChips = [
-  { icon: 'schedule', label: 'Scheduled', tone: 'neutral' },
-  { icon: 'error-outline', label: 'Failed to sync', tone: 'error' },
-  { icon: 'lock', label: 'End-to-end Zen', tone: 'accent' },
+  { icon: 'schedule' as const, label: 'Scheduled', tone: 'neutral' },
+  { icon: 'error-outline' as const, label: 'Failed to sync', tone: 'error' },
+  { icon: 'lock' as const, label: 'End-to-end Zen', tone: 'accent' },
 ];
 
 export default function ChatPage() {

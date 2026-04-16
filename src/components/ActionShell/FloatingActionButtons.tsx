@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
+import { View, Text } from 'react-native';
 import useResponsive from '../../useResponsive';
-import { colors } from '../../styles/theme';
 import { styles } from '../../styles/FloatingActionButtons.styles';
+import FABCard from './FABCard';
+import FABButton from './FABButton';
 
 export default function FloatingActionButtons() {
   const { isMobile } = useResponsive();
@@ -19,34 +18,32 @@ export default function FloatingActionButtons() {
         </Text>
       </View>
       <View style={[styles.grid, isMobile && styles.gridMobile]}>
-        <View style={[styles.card, isMobile && styles.cardMobile]}>
-          <Text style={styles.cardLabel}>STANDARD FAB</Text>
-          <TouchableOpacity activeOpacity={0.8}>
-            <LinearGradient
-              colors={[colors.primary, colors.primaryContainer]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.fabStandard}
-            >
-              <MaterialIcons name="add" size={24} color={colors.onPrimary} />
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
+        <FABCard label="STANDARD FAB" isMobile={isMobile}>
+          <FABButton 
+            variant="standard" 
+            iconName="add" 
+            onPress={() => console.log('Standard FAB pressed')}
+          />
+        </FABCard>
         
-        <View style={[styles.card, isMobile && styles.cardMobile]}>
-          <Text style={styles.cardLabel}>SMALL UTILITY</Text>
-          <TouchableOpacity style={styles.fabSmall} activeOpacity={0.8}>
-            <MaterialCommunityIcons name="auto-fix" size={20} color={colors.onSecondaryContainer} />
-          </TouchableOpacity>
-        </View>
+        <FABCard label="SMALL UTILITY" isMobile={isMobile}>
+          <FABButton 
+            variant="small" 
+            iconName="auto-fix" 
+            iconLibrary="MaterialCommunityIcons"
+            onPress={() => console.log('Small FAB pressed')}
+          />
+        </FABCard>
         
-        <View style={[styles.card, isMobile && styles.cardMobile]}>
-          <Text style={styles.cardLabel}>EXTENDED COMMAND</Text>
-          <TouchableOpacity style={styles.fabExtended} activeOpacity={0.8}>
-            <MaterialCommunityIcons name="magic-staff" size={24} color={colors.inverseOnSurface} />
-            <Text style={styles.fabExtendedText}>Generate Shell</Text>
-          </TouchableOpacity>
-        </View>
+        <FABCard label="EXTENDED COMMAND" isMobile={isMobile}>
+          <FABButton 
+            variant="extended" 
+            iconName="magic-staff"
+            iconLibrary="MaterialCommunityIcons"
+            text="Generate Shell"
+            onPress={() => console.log('Extended FAB pressed')}
+          />
+        </FABCard>
       </View>
     </View>
   );
