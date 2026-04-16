@@ -8,7 +8,7 @@ import DesignTokenPage from './pages/DesignTokenPage';
 import NavigationPage from './pages/NavigationPage';
 import BottomNavigation from './components/Navigation/BottomNavigation';
 import useResponsive from './useResponsive';
-import { colors } from './theme';
+import { colors } from './styles/theme';
 import { styles } from './styles/App.styles';
 
 export default function App() {

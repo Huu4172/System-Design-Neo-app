@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import useResponsive from '../../useResponsive';
-import { colors } from '../../theme';
+import { colors } from '../../styles/theme';
 
 export default function TypographyFoundation() {
   const { isMobile } = useResponsive();

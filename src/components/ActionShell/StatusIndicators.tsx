@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Animated } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import useResponsive from '../../useResponsive';
-import { colors } from '../../theme';
+import { colors } from '../../styles/theme';
 import { styles } from '../../styles/StatusIndicators.styles';
 
 export default function StatusIndicators() {

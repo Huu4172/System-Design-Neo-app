@@ -8,7 +8,7 @@ import SegmentedControls from '../components/ActionShell/SegmentedControls';
 import ProgressLoading from '../components/ActionShell/ProgressLoading';
 import OverlaysModals from '../components/ActionShell/OverlaysModals';
 import useResponsive from '../useResponsive';
-import { colors } from '../theme';
+import { colors } from '../styles/theme';
 
 export default function ActionShellPage() {
   const { isMobile } = useResponsive();

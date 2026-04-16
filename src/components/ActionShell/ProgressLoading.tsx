@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, Animated, Easing } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import useResponsive from '../../useResponsive';
-import { colors } from '../../theme';
+import { colors } from '../../styles/theme';
 import { styles } from '../../styles/ProgressLoading.styles';
 
 export default function ProgressLoading() {

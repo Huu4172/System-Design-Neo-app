@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import useResponsive from '../../useResponsive';
-import { colors } from '../../theme';
+import { colors } from '../../styles/theme';
 
 const iconItems = [
   { icon: 'auto-awesome', label: 'AI Magic' },

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import useResponsive from '../../useResponsive';
-import { colors } from '../../theme';
+import { colors } from '../../styles/theme';
 
 const visualSoulImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAL42nHf9r5_O7IT6P0fS-kn4EERwxRelSL-c2RLNNDdRQdpRUfsZ9BLUJLu538La1vj1yfptjJBk9UzUjuXGeijMP1ul6udLQey9W7gIk_HsiX3VzIE8Mx5Qw5h-C_Gsc6dvzjRBEsu4oBgTq-dAsWSR7JGb9AJEXXdv9D7rylN7IZJrkV4JOMuqTt0d2_14Jtx_vbW7zcAh6LUeAEznp-s45HS3fQRHdAgrFXCtCYQQyCjo56dtEDkGh-hse0Zna8hgNLvXaHJuvw';
 

@@ -5,7 +5,7 @@ import NavigationDrawer from '../components/Navigation/NavigationDrawer';
 import TopAppBars from '../components/Navigation/TopAppBars';
 import ContextualNavigation from '../components/Navigation/ContextualNavigation';
 import useResponsive from '../useResponsive';
-import { colors } from '../theme';
+import { colors } from '../styles/theme';
 
 export default function NavigationPage() {
   const { isMobile } = useResponsive();

@@ -3,7 +3,7 @@ import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'reac
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import useResponsive from '../useResponsive';
-import { colors } from '../theme';
+import { colors } from '../styles/theme';
 
 const userAvatar = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAgR-M7GcCKpZT9fLirzr8-VNb1bpRpGh1DbZbbfriDnC9eDNPN_kjk1wCN1rXPQHc5OCw_jsIeZlvmMhFBwQy7uNw2Lc0pNgcG3nnJnmIAC8FLmuhjze-fufILhlF3e8XOFACcytUcw0houaC4w47Qe5oSor2JhmryDIAeU_C3_zjP_Spg3gcWZKzSs5tqB-_Qu3Ja1Phzoi2HC6HF5N4Q-t0wSecHIQnNKIXQ7LL8YFuRherd9yX9dflZyJerQphyvGiwt3PXBUys';
 const moodboardPreview = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzKezED3ytW_zQuKOc5dPFXLKBK5CzK3TyUktpaRwr9NQjgxbIpwVLDGdmyfzP7hoKut6oTUbJgdX5VZSIhoVeGP3hNIt1WsAKAxDaB6L5z56GWohFS4usKWVA7qDSoTYoJ1hNDOOCef4Qy3WVqqkgD4vl0N893_8uojqVddIkliGxyW03XIhGq8AisEAvB7PX8UeCs6rqBfhVfFtUiWBuQ41_W27qOiR9g9GLN7XJ-ZleBBgWhTQYbsHXXWkuletR5-gLIv-yrmmY';

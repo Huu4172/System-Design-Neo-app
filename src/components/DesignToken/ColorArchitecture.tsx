@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import useResponsive from '../../useResponsive';
-import { colors } from '../../theme';
+import { colors } from '../../styles/theme';
 
 const swatches = [
   { name: 'Primary', hex: '#00677F', description: 'Core Brand Action', backgroundColor: colors.primary, textColor: colors.onPrimary },

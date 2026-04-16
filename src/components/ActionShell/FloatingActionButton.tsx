@@ -2,10 +2,11 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { colors } from '../../theme';
+import { colors } from '../../styles/theme';
 import { styles } from '../../styles/FloatingActionButtons.styles';
 
 interface StandardFABProps {
+	color: 
 	onPress?: () => void;
 }
 

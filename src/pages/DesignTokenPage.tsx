@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import useResponsive from '../useResponsive';
-import { colors } from '../theme';
+import { colors } from '../styles/theme';
 import TypographyFoundation from '../components/DesignToken/TypographyFoundation';
 import ColorArchitecture from '../components/DesignToken/ColorArchitecture';
 import DesignLanguage from '../components/DesignToken/DesignLanguage';
