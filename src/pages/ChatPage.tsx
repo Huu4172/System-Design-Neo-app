@@ -1,14 +1,15 @@
-import React from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet, LayoutAnimation } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import useResponsive from '../useResponsive';
 import { colors } from '../styles/theme';
+import WorkflowStepper, { StepStatus } from '../components/WorkflowStepper/WorkflowStepper';
 
 const userAvatar = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAgR-M7GcCKpZT9fLirzr8-VNb1bpRpGh1DbZbbfriDnC9eDNPN_kjk1wCN1rXPQHc5OCw_jsIeZlvmMhFBwQy7uNw2Lc0pNgcG3nnJnmIAC8FLmuhjze-fufILhlF3e8XOFACcytUcw0houaC4w47Qe5oSor2JhmryDIAeU_C3_zjP_Spg3gcWZKzSs5tqB-_Qu3Ja1Phzoi2HC6HF5N4Q-t0wSecHIQnNKIXQ7LL8YFuRherd9yX9dflZyJerQphyvGiwt3PXBUys';
 const moodboardPreview = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzKezED3ytW_zQuKOc5dPFXLKBK5CzK3TyUktpaRwr9NQjgxbIpwVLDGdmyfzP7hoKut6oTUbJgdX5VZSIhoVeGP3hNIt1WsAKAxDaB6L5z56GWohFS4usKWVA7qDSoTYoJ1hNDOOCef4Qy3WVqqkgD4vl0N893_8uojqVddIkliGxyW03XIhGq8AisEAvB7PX8UeCs6rqBfhVfFtUiWBuQ41_W27qOiR9g9GLN7XJ-ZleBBgWhTQYbsHXXWkuletR5-gLIv-yrmmY';
 
-const chatMessages = [
+const chatMessages: { id: string; type: string; title?: string; text: string; actions?: string[]; status?: string; demo?: string }[] = [
   {
     id: 'aura-greeting',
     type: 'assistant',
@@ -28,6 +29,52 @@ const chatMessages = [
     title: 'Aura AI',
     text: 'Retrieving the requested assets. Here is the primary visualization for the spatial interface layering.',
   },
+  {
+    id: 'wf-live',
+    type: 'workflow',
+    title: 'Aura AI',
+    text: 'Processing your spatial interface build.',
+    demo: 'live',
+  },
+  {
+    id: 'user-plan-change',
+    type: 'user',
+    text: 'Actually, let\'s add a review step before deploying. Can you adjust the pipeline?',
+    status: 'Sent',
+  },
+  {
+    id: 'wf-plan-change',
+    type: 'workflow',
+    title: 'Aura AI',
+    text: 'Updated pipeline — added Review and QA stages.',
+    demo: 'planChange',
+  },
+  {
+    id: 'user-skip',
+    type: 'user',
+    text: 'Skip the testing phase, we already validated manually.',
+    status: 'Sent',
+  },
+  {
+    id: 'wf-skipped',
+    type: 'workflow',
+    title: 'Aura AI',
+    text: 'Understood. Skipping Test and proceeding to Deploy.',
+    demo: 'skipped',
+  },
+  {
+    id: 'user-cancel',
+    type: 'user',
+    text: 'Hold on — cancel the deployment. Something came up.',
+    status: 'Sent',
+  },
+  {
+    id: 'wf-cancelled',
+    type: 'workflow',
+    title: 'Aura AI',
+    text: 'Workflow cancelled at the Test stage.',
+    demo: 'cancelled',
+  },
 ];
 
 const statusChips = [
@@ -38,6 +85,66 @@ const statusChips = [
 
 export default function ChatPage() {
   const { isMobile } = useResponsive();
+
+  // Demo 1: Live progress
+  const [liveStep, setLiveStep] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setLiveStep(p => { if (p >= 4) { clearInterval(t); return p; } return p + 1; }), 2500);
+    return () => clearInterval(t);
+  }, []);
+
+  // Demo 2: Plan change
+  const [pcStep, setPcStep] = useState(0);
+  const [pcSteps, setPcSteps] = useState(['Plan', 'Build', 'Test', 'Deploy']);
+  useEffect(() => {
+    const t = setInterval(() => setPcStep(p => {
+      const next = p + 1;
+      if (next === 2) { LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); setPcSteps(['Plan', 'Build', 'Review', 'QA', 'Deploy']); }
+      if (next > 5) { clearInterval(t); return p; }
+      return next;
+    }), 2500);
+    return () => clearInterval(t);
+  }, []);
+
+  // Demo 3: Skipped step
+  const [skipStep, setSkipStep] = useState(0);
+  const [skipStatuses, setSkipStatuses] = useState<StepStatus[]>([]);
+  useEffect(() => {
+    const t = setInterval(() => setSkipStep(p => {
+      const next = p + 1;
+      if (next === 2) {
+        setSkipStatuses(['done', 'done', 'skipped', 'active']);
+        clearInterval(t);
+        setTimeout(() => setSkipStatuses(['done', 'done', 'skipped', 'done']), 2500);
+        return 3;
+      }
+      if (next > 3) { clearInterval(t); return p; }
+      return next;
+    }), 2500);
+    return () => clearInterval(t);
+  }, []);
+
+  // Demo 4: Cancelled
+  const [cancelStep, setCancelStep] = useState(0);
+  const [cancelStatuses, setCancelStatuses] = useState<StepStatus[]>([]);
+  useEffect(() => {
+    const t = setInterval(() => setCancelStep(p => {
+      const next = p + 1;
+      if (next === 2) { setCancelStatuses(['done', 'done', 'cancelled', 'pending']); clearInterval(t); return p; }
+      return next;
+    }), 2500);
+    return () => clearInterval(t);
+  }, []);
+
+  const getWorkflowProps = (demo: string) => {
+    switch (demo) {
+      case 'live': return { currentStep: liveStep };
+      case 'planChange': return { steps: pcSteps, currentStep: pcStep };
+      case 'skipped': return { currentStep: skipStep, ...(skipStatuses.length ? { stepStatuses: skipStatuses } : {}) };
+      case 'cancelled': return { currentStep: cancelStep, ...(cancelStatuses.length ? { stepStatuses: cancelStatuses } : {}) };
+      default: return {};
+    }
+  };
 
   return (
     <>
@@ -116,6 +223,27 @@ export default function ChatPage() {
                       <TouchableOpacity activeOpacity={0.7}>
                         <MaterialIcons name="download" size={20} color={colors.outline} />
                       </TouchableOpacity>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            );
+          }
+
+          if (message.type === 'workflow') {
+            return (
+              <View key={message.id} style={styles.messageRow}>
+                <View style={styles.assistantAvatarShell}>
+                  <MaterialIcons name="smart-toy" size={16} color={colors.white} />
+                </View>
+                <View style={styles.assistantMessageWrap}>
+                  <View style={styles.messageMetaRow}>
+                    <Text style={styles.assistantLabel}>{message.title}</Text>
+                  </View>
+                  <View style={styles.assistantBubble}>
+                    <Text style={styles.messageText}>{message.text}</Text>
+                    <View style={{ marginTop: 12 }}>
+                      <WorkflowStepper {...getWorkflowProps(message.demo!)} />
                     </View>
                   </View>
                 </View>

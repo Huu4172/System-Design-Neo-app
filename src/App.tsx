@@ -7,7 +7,6 @@ import ActionShellPage from './pages/ActionShellPage';
 import ChatPage from './pages/ChatPage';
 import DesignTokenPage from './pages/DesignTokenPage';
 import NavigationPage from './pages/NavigationPage';
-import WorkflowStepperShowcase from './pages/WorkflowStepperShowcase';
 import BottomNavigation from './components/Navigation/BottomNavigation';
 import useResponsive from './useResponsive';
 import { colors } from './styles/theme';
@@ -28,10 +27,6 @@ export default function App() {
 
     if (activePage === 'Navigation') {
       return <NavigationPage />;
-    }
-
-    if (activePage === 'Stepper') {
-      return <WorkflowStepperShowcase />;
     }
 
     return <ActionShellPage />;
