@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat';
+import { GiftedChat, IMessage } from 'react-native-gifted-chat';
 import WorkflowStepper from './WorkflowStepper';
+
+interface WorkflowMessage extends IMessage {
+  workflow?: { steps: string[]; currentStep: number };
+}
 
 const BOT = { _id: 2, name: 'Assistant', avatar: 'https://ui-avatars.com/api/?name=AI&background=007AFF&color=fff' };
 const STEPS = ['Plan', 'Build', 'Test', 'Deploy'];
 const WORKFLOW_MSG_ID = 'workflow-1';
 
-export default function App() {
-  const [messages, setMessages] = useState([]);
+export default function StepperDemo() {
+  const [messages, setMessages] = useState<WorkflowMessage[]>([]);
 
-  // Seed initial messages including a workflow message at step 0
   useEffect(() => {
     setMessages([
       {
@@ -41,7 +44,7 @@ export default function App() {
       setMessages(prev =>
         prev.map(m =>
           m._id === WORKFLOW_MSG_ID
-            ? { ...m, workflow: { ...m.workflow, currentStep: step } }
+            ? { ...m, workflow: { ...m.workflow!, currentStep: step } }
             : m
         )
       );
@@ -49,13 +52,13 @@ export default function App() {
     return () => clearInterval(timer);
   }, []);
 
-  const renderCustomView = useCallback((props) => {
+  const renderCustomView = useCallback((props: { currentMessage?: WorkflowMessage }) => {
     const wf = props.currentMessage?.workflow;
     if (!wf) return null;
     return <WorkflowStepper steps={wf.steps} currentStep={wf.currentStep} />;
   }, []);
 
-  const onSend = useCallback((newMsgs = []) => {
+  const onSend = useCallback((newMsgs: IMessage[] = []) => {
     setMessages(prev => GiftedChat.append(prev, newMsgs));
   }, []);
 

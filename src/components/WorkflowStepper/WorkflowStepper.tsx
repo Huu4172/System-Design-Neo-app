@@ -1,12 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, Animated, StyleSheet } from 'react-native';
 
-const STEPS = ['Plan', 'Build', 'Test', 'Deploy'];
 const GREEN = '#34C759';
 const BLUE = '#007AFF';
 const GREY = '#D1D1D6';
 
-const PulsingDot = () => {
+interface WorkflowStepperProps {
+  steps?: string[];
+  currentStep?: number;
+}
+
+const PulsingDot: React.FC = () => {
   const scale = useRef(new Animated.Value(1)).current;
   useEffect(() => {
     Animated.loop(
@@ -21,7 +25,10 @@ const PulsingDot = () => {
   );
 };
 
-const WorkflowStepper = ({ currentStep = 0, steps = STEPS }) => (
+const WorkflowStepper: React.FC<WorkflowStepperProps> = ({
+  currentStep = 0,
+  steps = ['Plan', 'Build', 'Test', 'Deploy'],
+}) => (
   <View style={styles.container}>
     <View style={styles.row}>
       {steps.map((step, i) => {
