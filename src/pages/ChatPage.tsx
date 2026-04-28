@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet, LayoutAnimation } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import useResponsive from '../useResponsive';
@@ -46,13 +46,20 @@ const statusChips = [
 export default function ChatPage() {
   const { isMobile } = useResponsive();
   const [currentStep, setCurrentStep] = useState(0);
+  const [steps, setSteps] = useState(['Plan', 'Build', 'Test', 'Deploy']);
 
-  // Simulate live progress updates
+  // Simulate live progress + plan change at step 2
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentStep(prev => {
-        if (prev >= 4) { clearInterval(timer); return prev; }
-        return prev + 1;
+        const next = prev + 1;
+        // At step 2, simulate a plan change: remove "Test", add "Review" + "QA"
+        if (next === 2) {
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+          setSteps(['Plan', 'Build', 'Review', 'QA', 'Deploy']);
+        }
+        if (next > (next >= 2 ? 5 : 4)) { clearInterval(timer); return prev; }
+        return next;
       });
     }, 2500);
     return () => clearInterval(timer);
@@ -155,7 +162,7 @@ export default function ChatPage() {
                   <View style={styles.assistantBubble}>
                     <Text style={styles.messageText}>{message.text}</Text>
                     <View style={{ marginTop: 12 }}>
-                      <WorkflowStepper currentStep={currentStep} />
+                      <WorkflowStepper steps={steps} currentStep={currentStep} />
                     </View>
                   </View>
                 </View>
