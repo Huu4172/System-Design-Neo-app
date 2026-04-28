@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import useResponsive from '../useResponsive';
 import { colors } from '../styles/theme';
+import WorkflowStepper from '../components/WorkflowStepper/WorkflowStepper';
 
 const userAvatar = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAgR-M7GcCKpZT9fLirzr8-VNb1bpRpGh1DbZbbfriDnC9eDNPN_kjk1wCN1rXPQHc5OCw_jsIeZlvmMhFBwQy7uNw2Lc0pNgcG3nnJnmIAC8FLmuhjze-fufILhlF3e8XOFACcytUcw0houaC4w47Qe5oSor2JhmryDIAeU_C3_zjP_Spg3gcWZKzSs5tqB-_Qu3Ja1Phzoi2HC6HF5N4Q-t0wSecHIQnNKIXQ7LL8YFuRherd9yX9dflZyJerQphyvGiwt3PXBUys';
 const moodboardPreview = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzKezED3ytW_zQuKOc5dPFXLKBK5CzK3TyUktpaRwr9NQjgxbIpwVLDGdmyfzP7hoKut6oTUbJgdX5VZSIhoVeGP3hNIt1WsAKAxDaB6L5z56GWohFS4usKWVA7qDSoTYoJ1hNDOOCef4Qy3WVqqkgD4vl0N893_8uojqVddIkliGxyW03XIhGq8AisEAvB7PX8UeCs6rqBfhVfFtUiWBuQ41_W27qOiR9g9GLN7XJ-ZleBBgWhTQYbsHXXWkuletR5-gLIv-yrmmY';
@@ -28,6 +29,12 @@ const chatMessages = [
     title: 'Aura AI',
     text: 'Retrieving the requested assets. Here is the primary visualization for the spatial interface layering.',
   },
+  {
+    id: 'aura-workflow',
+    type: 'workflow',
+    title: 'Aura AI',
+    text: 'Processing your request through the pipeline.',
+  },
 ];
 
 const statusChips = [
@@ -38,6 +45,18 @@ const statusChips = [
 
 export default function ChatPage() {
   const { isMobile } = useResponsive();
+  const [currentStep, setCurrentStep] = useState(0);
+
+  // Simulate live progress updates
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentStep(prev => {
+        if (prev >= 4) { clearInterval(timer); return prev; }
+        return prev + 1;
+      });
+    }, 2500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
@@ -116,6 +135,27 @@ export default function ChatPage() {
                       <TouchableOpacity activeOpacity={0.7}>
                         <MaterialIcons name="download" size={20} color={colors.outline} />
                       </TouchableOpacity>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            );
+          }
+
+          if (message.type === 'workflow') {
+            return (
+              <View key={message.id} style={styles.messageRow}>
+                <View style={styles.assistantAvatarShell}>
+                  <MaterialIcons name="smart-toy" size={16} color={colors.white} />
+                </View>
+                <View style={styles.assistantMessageWrap}>
+                  <View style={styles.messageMetaRow}>
+                    <Text style={styles.assistantLabel}>{message.title}</Text>
+                  </View>
+                  <View style={styles.assistantBubble}>
+                    <Text style={styles.messageText}>{message.text}</Text>
+                    <View style={{ marginTop: 12 }}>
+                      <WorkflowStepper currentStep={currentStep} />
                     </View>
                   </View>
                 </View>
