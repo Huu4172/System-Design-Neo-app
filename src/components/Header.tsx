@@ -10,6 +10,7 @@ const navItems = [
   { icon: 'inventory-2' as const, label: 'Design Token' },
   { icon: 'dashboard' as const, label: 'Action Shell' },
   { icon: 'route' as const, label: 'Navigation' },
+  { icon: 'linear-scale' as const, label: 'Stepper' },
 ];
 
 interface HeaderProps {
